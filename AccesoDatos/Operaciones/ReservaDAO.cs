@@ -12,12 +12,12 @@ namespace AccesoDatos.Operaciones
     {
         private RecursosContext context = new RecursosContext();
 
-        public List<IndexReservas> index(int id)
+        public List<IndexReservas> index(string nombre)
         {
             var query = from r in context.Reservas
                         join u in context.Usuarios on r.IdUsuario equals u.IdUsuario
                         join re in context.Recursos on r.IdRecurso equals re.IdRecurso
-                        where u.IdUsuario == id && re.Estado == 1
+                        where u.Usuario1.Equals(nombre) && re.Estado == 1
                         select new IndexReservas
                         {
                             Id = u.IdUsuario,

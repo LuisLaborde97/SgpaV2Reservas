@@ -13,9 +13,9 @@ namespace SgpaWebApi.Controllers
 
         [HttpGet("index")]
 
-        public List<IndexReservas> getReservas(int id)
+        public List<IndexReservas> getReservas(string usuario)
         {
-            return reserva.index(id);
+            return reserva.index(usuario);
         }
 
         [HttpGet("idReserva")]

@@ -17,7 +17,7 @@ namespace SgpaWebApi.Controllers
 
             if (users != null)
             {
-                return user.Usuario1;
+                return users;
             }
             else
             {

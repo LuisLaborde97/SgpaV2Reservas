@@ -12,11 +12,18 @@ namespace AccesoDatos.Operaciones
     {
         public RecursosContext context = new RecursosContext();
 
-        public Usuario login(string username, string password)
+        public string login(string username, string password)
         {
-            var user = context.Usuarios.Where(u => u.Usuario1 == username && u.Password == password).FirstOrDefault();
-
-            return user;
+            var user = context.Usuarios.Where(u => u.Usuario1.Equals(username) && u.Password.Equals(password)).FirstOrDefault();
+            if (user != null)
+            {
+                return user.Usuario1;
+            }
+            else
+            {
+                return null;
+            }
+            
         }
     }
 }
